@@ -46,3 +46,7 @@ flutter run --dart-define=FLAVOR=dev
 ### アプリビルド
 flutter build ios --dart-define=FLAVOR=dev
 
+## Appendix
+- [FlutterでDart-defineのみを使って開発環境と本番環境を分ける](https://zenn.dev/riscait/articles/separating-environments-in-flutter)
+- [FVMでFlutter SDKのバージョンをプロジェクト毎に管理する](https://zenn.dev/riscait/articles/flutter-version-management)
+
