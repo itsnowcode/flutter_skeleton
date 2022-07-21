@@ -39,6 +39,11 @@ apps](https://flutter.dev/docs/development/accessibility-and-localization/intern
 - GoogleService-Info.plist
 - google-services.json
 
+## VS Code拡張機能
+- コマンドパレットを開き、以下を実行
+  - `Show Recommended Extensions`
+- ワークスペースの推奨事項にある拡張機能をインストール
+
 ## Run
 
 ### アプリ起動
