@@ -31,9 +31,10 @@ apps](https://flutter.dev/docs/development/accessibility-and-localization/intern
 
 
 ## 最初に
+### Firebase configuration file
 下記は環境によって正しいファイルを置く。
-- GoogleService-Info.plist
-- google-services.json
+- android/src/(dev|stg|prod)/google-services.json
+- ios/(dev|stg|prod)/GoogleService-Info.plist
 
 ## VS Code拡張機能
 - コマンドパレットを開き、以下を実行
