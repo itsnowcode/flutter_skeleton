@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'settings_controller.dart';
@@ -6,12 +8,50 @@ import 'settings_controller.dart';
 ///
 /// When a user changes a setting, the SettingsController is updated and
 /// Widgets that listen to the SettingsController are rebuilt.
-class SettingsView extends StatelessWidget {
+class SettingsView extends StatefulWidget {
   const SettingsView({Key? key, required this.controller}) : super(key: key);
 
   static const routeName = '/settings';
 
   final SettingsController controller;
+
+  @override
+  State<StatefulWidget> createState() {
+    return SettingsState();
+  }
+}
+
+class SettingsState extends State<SettingsView> {
+  User? user;
+  List<String> lists = [];
+
+  @override
+  void initState() {
+    super.initState();
+    user = FirebaseAuth.instance.currentUser;
+
+    FirebaseAuth.instance.userChanges().listen((user) {
+      if (user == null) {
+        return;
+      }
+
+      FirebaseFirestore.instance
+          .collection('apps')
+          .doc('flutter_skeleton')
+          .collection('users')
+          .snapshots()
+          .listen((snapshot) {
+        var li = <String>[];
+        for (final document in snapshot.docs) {
+          li.add(document.data()['name']);
+        }
+
+        setState(() {
+          lists = li;
+        });
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +69,9 @@ class SettingsView extends StatelessWidget {
           children: [
             DropdownButton<ThemeMode>(
               // Read the selected themeMode from the controller
-              value: controller.themeMode,
+              value: widget.controller.themeMode,
               // Call the updateThemeMode method any time the user selects a theme.
-              onChanged: controller.updateThemeMode,
+              onChanged: widget.controller.updateThemeMode,
               items: const [
                 DropdownMenuItem(
                   value: ThemeMode.system,
@@ -47,8 +87,23 @@ class SettingsView extends StatelessWidget {
                 )
               ],
             ),
-            Text(controller.packageInfo.appName),
-            Text(controller.packageInfo.packageName),
+            Text(widget.controller.packageInfo.appName),
+            Text(widget.controller.packageInfo.packageName),
+            TextButton(
+              onPressed: () async {
+                if (user != null) {
+                  return;
+                }
+                var credential =
+                    await FirebaseAuth.instance.signInAnonymously();
+                setState(() {
+                  user = credential.user;
+                });
+              },
+              child: Text(
+                  user == null ? 'sign in anonymously' : 'already logined'),
+            ),
+            ...lists.map((e) => Text(e)).toList(),
           ],
         ),
       ),
