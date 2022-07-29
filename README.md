@@ -1,58 +1,39 @@
 # flutter_skeleton
-
-A new Flutter project.
+A new Flutter skeleton project.
 
 ## Getting Started
-
-This project is a starting point for a Flutter application that follows the
-[simple app state management
-tutorial](https://flutter.dev/docs/development/data-and-backend/state-mgmt/simple).
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
-## Assets
-
-The `assets` directory houses images, fonts, and any other files you want to
-include with your application.
-
-The `assets/images` directory contains [resolution-aware
-images](https://flutter.dev/docs/development/ui/assets-and-images#resolution-aware).
-
-## Localization
-
-This project generates localized messages based on arb files found in
-the `lib/src/localization` directory.
-
-To support additional languages, please visit the tutorial on
-[Internationalizing Flutter
-apps](https://flutter.dev/docs/development/accessibility-and-localization/internationalization)
-
-
-## 最初に
+This project is a starting point for a Flutter application with Firebase.
+Apply [FlutterでDart-defineのみを使って開発環境と本番環境を分ける](https://zenn.dev/riscait/articles/separating-environments-in-flutter) to Skeleton.
 
 ### Used fvm for flutter
+This project uses [FVM](https://fvm.app/) to manage Flutter versions.
+First, please install Flutter by FVM.
+
 ```sh
 fvm install
 ```
 
 ### Firebase configuration file
-下記は環境によって正しいファイルを置く。
+Please copy the following files according to your environment.
 - android/src/(dev|stg|prod)/google-services.json
 - ios/(dev|stg|prod)/GoogleService-Info.plist
 
-## VS Code拡張機能
-- コマンドパレットを開き、以下を実行
+## VS Code extension
+- Open the command palette and do the following
   - `Show Recommended Extensions`
-- ワークスペースの推奨事項にある拡張機能をインストール
+- Install the extension found in the workspace recommendations
 
 ## Run
 
-### アプリ起動
-flutter run --dart-define=FLAVOR=dev
-### アプリビルド
-flutter build ios --dart-define=FLAVOR=dev
+### Launch the app
+```sh
+fvm flutter run --dart-define=FLAVOR=dev
+```
+
+### Build the app(ios)
+```sh
+frm flutter build ios --dart-define=FLAVOR=dev
+```
 
 ## Appendix
 - [FlutterでDart-defineのみを使って開発環境と本番環境を分ける](https://zenn.dev/riscait/articles/separating-environments-in-flutter)
