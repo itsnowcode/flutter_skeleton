@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>99999999999-zzzzzzz9zz9zzzzzz9zzz99zzzzzzzz9.apps.example.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.example.apps.99999999999-zzzzzzz9zz9zzzzzz9zzz99zzzzzzzz9</string>
+	<key>API_KEY</key>
+	<string>ZZzzZzZ99zzLZzZ9Z99z99zZzZZzZzZZz9zO9zz</string>
+	<key>GCM_SENDER_ID</key>
+	<string>99999999999</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.flutterApplication2</string>
+	<key>PROJECT_ID</key>
+	<string>demo-emulator-project123</string>
+	<key>STORAGE_BUCKET</key>
+	<string>demo-emulator-project123t.example.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>9:99999999999:ios:99zz99zz9z999z99zz9999</string>
+	<key>DATABASE_URL</key>
+	<string>https://demo-emulator-project123-default-rtdb.example.com</string>
+</dict>
+</plist>

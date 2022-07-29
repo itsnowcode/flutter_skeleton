@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "999999999999",
+    "firebase_url": "https://demo-emulator-project123-default-rtdb.example.com",
+    "project_id": "demo-emulator-project123",
+    "storage_bucket": "demo-emulator-project123t.example.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "9:999999999999:android:z999999zz99999zz99zzz9",
+        "android_client_info": {
+          "package_name": "com.example.flutter_skeleton"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "999999999999-zzzzzzz9zz9zzzzzz9zzz99zzzzzzzz9.apps.example.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutter_skeleton",
+            "certificate_hash": "999z9999999999z999z9zz999zzz9z9z99999999"
+          }
+        },
+        {
+          "client_id": "000000000000-z0zz00000zzzz0z0zz0z0zzzzz0zzzzz.apps.example.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "ZZzzZzZ99zzLZzZ9Z99z99zZzZZzZzZZz9zO9zz"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "999999999999-zz9zzzzzzz9zzz99zzz99zzzzzzz9zzz.apps.example.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
