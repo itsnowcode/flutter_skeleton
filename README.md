@@ -31,6 +31,12 @@ apps](https://flutter.dev/docs/development/accessibility-and-localization/intern
 
 
 ## 最初に
+
+### Used fvm for flutter
+```sh
+fvm install
+```
+
 ### Firebase configuration file
 下記は環境によって正しいファイルを置く。
 - android/src/(dev|stg|prod)/google-services.json
