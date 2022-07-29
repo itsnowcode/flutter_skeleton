@@ -13,15 +13,38 @@ First, please install Flutter by FVM.
 fvm install
 ```
 
+## VS Code extension
+Open the command palette and do the following.
+  - `Show Recommended Extensions`
+Install the extension found in the workspace recommendations.
+
 ### Firebase configuration file
 Please copy the following files according to your environment.
 - android/src/(dev|stg|prod)/google-services.json
 - ios/(dev|stg|prod)/GoogleService-Info.plist
 
-## VS Code extension
-- Open the command palette and do the following
-  - `Show Recommended Extensions`
-- Install the extension found in the workspace recommendations
+### Firebase setting
+Set the following in your Firebase project.
+- Enable project 
+  - Authentication
+  - Firestore Database
+- Enable Auth
+  - Authentication -> Sign-in-method -> Add new provider -> Anonymous
+- Create Firestore data and set rules
+  - Firestore Database -> Data
+    - create path: /apps/flutter_skeleton/users, document: name=dora chan
+  - Firestore Database -> Rules
+```
+match /apps {
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /apps/flutter_skeleton/users/{id} {
+      allow read: if request.auth != null;
+    }
+  }
+}
+```
 
 ## Run
 
