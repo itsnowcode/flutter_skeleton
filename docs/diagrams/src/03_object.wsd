@@ -1,0 +1,64 @@
+@startuml object
+left to right direction
+
+object "(採用ポジション)" as posi1 {
+  ポジション名：サーバサイドエンジニア
+  募集ステータス：募集中
+  募集人数：3人
+}
+
+rectangle " " as rec1 {
+  object "(採用選考)" as senko1 {
+    選考ステータス：選考中
+    応募日：3/27
+  }
+
+  object "(応募者)" as oubo1 {
+    名前：村岡　太郎
+    メールアドレス：ddd@example.com
+  }
+
+  object "(面接)" as mensetsu1 {
+    面接次数：1次
+    日時：3/21 17:00
+  }
+
+  object "(面接)" as mensetsu2 {
+    面接次数：2次
+    日時：4/8 14:00
+  }
+}
+
+rectangle " " as rec2 {
+  object "(採用選考)" as senko2 {
+    選考ステータス：不採用
+    応募日：3/17
+  }
+
+  object "(応募者)" as oubo2 {
+    名前：山田　次郎
+    メールアドレス：yamada@example.com
+  }
+
+  object "(面接)" as mensetsu3 {
+    面接次数：1次
+    日時：3/21 17:00
+
+  }
+}
+
+
+senko1 -u-> posi1
+senko2 -u-> posi1
+oubo1 -u-* senko1
+oubo2 -u-* senko2
+mensetsu1 -* senko1
+mensetsu2 -u-* senko1
+mensetsu3 -* senko2
+
+
+note left of rec1 : 2次選考まで進んでいる、\n進行中の採用選考
+note left of rec2 : 1次面接で\n不採用になった採用選考
+
+
+@enduml
