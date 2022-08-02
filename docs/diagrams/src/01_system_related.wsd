@@ -1,0 +1,25 @@
+@startuml system_related
+left to right direction
+
+actor "応募者" as actOubo
+actor "採用担当者" as actSaiyoTanto
+
+agent "応募\nフォーム" as agOuboForm
+
+rectangle #line.dashed {
+  agent "採用管理\nシステム" as agSaiyoMng
+}
+
+agent "メール送信\nサービス" as agMailSend
+
+actOubo -- agOuboForm
+agOuboForm -- actSaiyoTanto
+agSaiyoMng -- actSaiyoTanto
+agSaiyoMng -l-> agMailSend
+
+note top of actOubo : ・採用ページからリンクで飛んで\n　フォームで応募する
+note right of agOuboForm : ・応募フォームからの\n　自動連係は最初はしない\n　（直接採用管理システムに手入力）
+note left of agSaiyoMng : 開発する\nシステム
+note right of agMailSend : ・メール送信は外部の\n　マネージドサービスを使用する
+
+@enduml

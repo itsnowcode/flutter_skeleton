@@ -1,0 +1,55 @@
+@startuml domain_model
+left to right direction
+
+rectangle "採用ポジション集約" as rec1 {
+  object "採用ポジション\n(Position)" as posi1 {
+    ポジション名
+    募集ステータス
+    募集人数
+  }
+
+}
+
+rectangle "採用選考集約" as rec2 {
+  object "採用選考\n(Screening)" as senko1 {
+    選考ステータス
+    応募日
+  }
+
+  object "応募者\n(Applicant)" as oubo1 {
+    名前
+    メールアドレス
+  }
+
+  object "面接\n(Interview)" as mensetsu1 {
+    面接次数
+    日時
+  }
+}
+
+
+senko1 "0..n" -u-> "1" posi1
+oubo1 "1" -u-* "1" senko1
+mensetsu1 "0..n" -* "1" senko1
+
+
+note top of senko1
+ ・選考ステータスは「選考中」
+ 　「採用」「不採用」
+end note
+note right of posi1
+  ・募集ステータスは「募集中」「募集停止」
+  ・募集人数は随時更新可能
+  ・(要件等：募集人数と「採用選考」で
+  　　採用確定した人数は連動させる？)
+end note
+note top of oubo1 
+  ・名前、メールアドレスは必須
+  ・(備考欄があっても良さそう)
+end note
+note right of mensetsu1 
+  ・選考ステータスが「選考中」の時のみ
+  　面接を追加できる
+end note
+
+@enduml

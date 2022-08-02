@@ -1,0 +1,29 @@
+@startuml usecase
+left to right direction
+
+:採用担当者: as actTanto
+
+rectangle 採用管理システム as rec1 {
+
+  rectangle " " as rec2 #line.dashed {
+    (採用選考を\n登録する) as ucSaiyoReg
+    (面接を\n設定する) as ucMensetuSet
+
+  }
+
+  (候補者にメール\nを送信する) as ucSendMail
+
+}
+
+
+actTanto --> ucSaiyoReg
+actTanto --> ucMensetuSet
+actTanto --> ucSendMail
+
+
+note right of rec1 : 開発するシステム
+note right of rec2 : 初回ドメインモデル図\n作成範囲
+
+
+
+@enduml
