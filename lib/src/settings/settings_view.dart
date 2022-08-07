@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +26,7 @@ class SettingsView extends StatefulWidget {
 class SettingsState extends State<SettingsView> {
   User? user;
   List<String> lists = [];
+  StreamSubscription? sub;
 
   @override
   void initState() {
@@ -35,7 +38,7 @@ class SettingsState extends State<SettingsView> {
         return;
       }
 
-      FirebaseFirestore.instance
+      sub = FirebaseFirestore.instance
           .collection('apps')
           .doc('flutter_skeleton')
           .collection('users')
@@ -51,6 +54,12 @@ class SettingsState extends State<SettingsView> {
         });
       });
     });
+  }
+  
+@override
+  void dispose() {
+    sub?.cancel();
+    super.dispose();
   }
 
   @override
